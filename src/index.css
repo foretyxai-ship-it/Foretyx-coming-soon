@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* FORETYX Enterprise Design System
+   Refined, authoritative, professional - premium enterprise aesthetic
+   Colors in HSL format */
+
+@layer base {
+  :root {
+    /* Core palette - refined dark with subtle blue undertone */
+    --background: 225 30% 5%;
+    --foreground: 210 25% 96%;
+
+    --card: 225 25% 7%;
+    --card-foreground: 210 25% 96%;
+
+    --popover: 225 25% 7%;
+    --popover-foreground: 210 25% 96%;
+
+    /* Primary - crisp white for contrast */
+    --primary: 210 25% 96%;
+    --primary-foreground: 225 30% 5%;
+
+    /* Secondary - elevated surface */
+    --secondary: 225 20% 10%;
+    --secondary-foreground: 210 20% 85%;
+
+    /* Muted - subtle backgrounds */
+    --muted: 225 15% 12%;
+    --muted-foreground: 215 15% 50%;
+
+    /* Accent - sophisticated teal */
+    --accent: 175 35% 40%;
+    --accent-foreground: 175 40% 95%;
+
+    /* Accent glow for hover states */
+    --accent-glow: 175 45% 50%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 25% 98%;
+
+    --border: 225 15% 14%;
+    --input: 225 20% 12%;
+    --ring: 175 35% 40%;
+
+    --radius: 0.5rem;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Light mode override */
+  .light {
+    --background: 210 25% 98%;
+    --foreground: 225 40% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 40% 8%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 40%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 225 40% 8%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Enterprise heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+}
+
+@layer components {
+  /* Enterprise input styling */
+  .input-enterprise {
+    @apply bg-secondary border-border text-foreground placeholder:text-muted-foreground 
+           focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-200;
+  }
+
+  /* Feature card styling */
+  .feature-card {
+    @apply bg-card border border-border rounded-lg p-6 transition-all duration-300
+           hover:border-accent/30 hover:bg-secondary/50;
+  }
+
+  /* Trust badge styling */
+  .trust-text {
+    @apply text-muted-foreground text-sm leading-relaxed;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text;
+  }
+
+  /* Subtle glow effect */
+  .glow-accent {
+    box-shadow: 0 0 40px -10px hsl(var(--accent) / 0.3);
+  }
+
+  /* Step number styling */
+  .step-number {
+    @apply w-10 h-10 rounded-full bg-accent/10 border border-accent/20 
+           flex items-center justify-center text-accent font-semibold text-sm;
+  }
+}
